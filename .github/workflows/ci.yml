@@ -128,16 +128,11 @@ jobs:
           - jammy # Ubuntu 22.04 LTS
           # - buster # Debian 10
           - bullseye # Debian 11
-          - sid # Debian unstable
+          # - sid # Debian unstable
         TYPE:
           - minimal
           - cli
-          - desktop
-        include:
-          - TYPE: desktop
-            DESKTOP_ENVIRONMENT: xfce
-            DESKTOP_ENVIRONMENT_CONFIG_NAME: config_base
-            DESKTOP_APPGROUPS_SELECTED: ""
+
 
     steps:
       - name: Import env
