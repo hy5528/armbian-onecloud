@@ -108,7 +108,7 @@ jobs:
           sudo chown $(id -u):$(id -g) -R output/
 
       - name: Upload artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@main
         with:
           name: debs-${{ matrix.BRANCH }}
           path: output/debs/*
@@ -140,7 +140,7 @@ jobs:
           echo "$(echo "${{ needs.prepare.outputs.env }}" | base64 -d)" >>$GITHUB_ENV
 
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           repository: ${{ env.ARMBIAN_REPO }}
           ref: ${{ env.ARMBIAN_SHA }}
@@ -153,7 +153,7 @@ jobs:
           done
 
       - name: Download debs
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: debs-${{ matrix.BRANCH }}
           path: output/debs/
@@ -249,10 +249,10 @@ jobs:
           echo "$(echo "${{ needs.prepare.outputs.env }}" | base64 -d)" >>$GITHUB_ENV
 
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Download artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           path: artifacts/
 
