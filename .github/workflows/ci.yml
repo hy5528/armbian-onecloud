@@ -143,12 +143,7 @@ jobs:
           repository: ${{ env.ARMBIAN_REPO }}
           ref: ${{ env.ARMBIAN_SHA }}
 
-      - name: "Apply patch #4077"
-        run: |
-          curl -L -O "https://github.com/armbian/build/pull/4077.patch"
-          for file in *.patch; do
-            patch --batch -p1 -N <"$file"
-          done
+    
 
       - name: Download debs
         uses: actions/download-artifact@v4
