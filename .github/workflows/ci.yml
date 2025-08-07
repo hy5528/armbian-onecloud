@@ -81,7 +81,7 @@ jobs:
       fail-fast: false
       matrix:
         BRANCH:
-          - edge
+          - current
 
     steps:
       - name: Import env
