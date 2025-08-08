@@ -98,7 +98,7 @@ jobs:
       - name: Build
         run: |
           sudo ./compile.sh \
-            BOARD=aml-s805 \
+            BOARD=onecloud \
             BRANCH=${{ matrix.BRANCH }} \
             KERNEL_CONFIGURE=no \
             KERNEL_ONLY=yes \
@@ -156,7 +156,7 @@ jobs:
       - name: Build
         run: |
           sudo ./compile.sh \
-            BOARD=aml-s805 \
+            BOARD=onecloud \
             BRANCH=${{ matrix.BRANCH }} \
             RELEASE=${{ matrix.RELEASE }} \
             KERNEL_CONFIGURE=no \
