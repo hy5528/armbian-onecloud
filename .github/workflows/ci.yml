@@ -14,7 +14,7 @@ env:
   UBOOT_REPO: hzyitc/u-boot-onecloud
   UBOOT_RELEASE: latest
   UBOOT_BURNIMG: eMMC.burn.img
-  ARMBIAN_REPO: hy5528/s805-armbian-build
+  ARMBIAN_REPO: hy5528/armbian-build-s805
   ARMBIAN_REF: master
 
 jobs:
