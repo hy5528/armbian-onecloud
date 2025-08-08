@@ -81,7 +81,6 @@ jobs:
       fail-fast: false
       matrix:
         BRANCH:
-          - current
           - edge
 
     steps:
@@ -121,7 +120,6 @@ jobs:
       fail-fast: false
       matrix:
         BRANCH:
-          - current
           - edge
         RELEASE:
           # - focal # Ubuntu 20.04 LTS
