@@ -164,7 +164,19 @@ jobs:
         with:
           name: debs-${{ matrix.BRANCH }}
           path: output/debs/
-
+      - name: "Checkout current repository"
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          clean: false
+          path: current
+          
+      - name: "Copy userpatches to build folder"
+        shell: bash
+        run: |
+          sudo rm -r ./lib     
+          rsync -av current/patch/. ./
+          sudo chmod 777 ./compile.sh
       - name: Build
         run: |
           sudo ./compile.sh \
