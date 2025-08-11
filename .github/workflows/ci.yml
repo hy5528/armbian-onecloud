@@ -93,7 +93,7 @@ jobs:
         with:
           repository: ${{ env.ARMBIAN_REPO }}
           ref: ${{ env.ARMBIAN_SHA }}
- - name: "Checkout current repository"
+      - name: "Checkout current repository"
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
