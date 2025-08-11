@@ -93,13 +93,6 @@ jobs:
         with:
           repository: ${{ env.ARMBIAN_REPO }}
           ref: ${{ env.ARMBIAN_SHA }}
-      - name: "Checkout current repository"
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-          clean: false
-          path: current
-          
       - name: "Copy userpatches to build folder"
         shell: bash
         run: |
@@ -118,6 +111,14 @@ jobs:
             USE_CCACHE=no \
             NO_APT_CACHER=yes
           sudo chown $(id -u):$(id -g) -R output/
+      - name: "Checkout current repository"
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          clean: false
+          path: current
+          
+      
 
       - name: Upload artifacts
         uses: actions/upload-artifact@main
