@@ -14,8 +14,8 @@ env:
   UBOOT_REPO: hzyitc/u-boot-onecloud
   UBOOT_RELEASE: latest
   UBOOT_BURNIMG: eMMC.burn.img
-  ARMBIAN_REPO: soulteary/armbian-build-s805
-  ARMBIAN_REF: main
+  ARMBIAN_REPO: armbian/build
+  ARMBIAN_REF: v23.02
 
 jobs:
   prepare:
@@ -93,19 +93,7 @@ jobs:
         with:
           repository: ${{ env.ARMBIAN_REPO }}
           ref: ${{ env.ARMBIAN_SHA }}
-      - name: "Checkout current repository"
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-          clean: false
-          path: current
-          
-      - name: "Copy userpatches to build folder"
-        shell: bash
-        run: |
-          sudo rm -r ./lib     
-          rsync -av current/patch/. ./
-          sudo chmod 777 ./compile.sh
+     
           
       - name: Build
         run: |
@@ -164,19 +152,7 @@ jobs:
         with:
           name: debs-${{ matrix.BRANCH }}
           path: output/debs/
-      - name: "Checkout current repository"
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-          clean: false
-          path: current
-          
-      - name: "Copy userpatches to build folder"
-        shell: bash
-        run: |
-          sudo rm -r ./lib     
-          rsync -av current/patch/. ./
-          sudo chmod 777 ./compile.sh
+     
       - name: Build
         run: |
           sudo ./compile.sh \
