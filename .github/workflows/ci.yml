@@ -103,9 +103,9 @@ jobs:
       - name: "Copy userpatches to build folder"
         shell: bash
         run: |
-          sudo rm -r build/lib     
-          rsync -av current/patch/. build/
-          sudo chmod 777 build/compile.sh
+          sudo rm -r armbian-onecloud/lib     
+          rsync -av current/patch/. armbian-onecloud/
+          sudo chmod 777 armbian-onecloud/compile.sh
           
       - name: Build
         run: |
