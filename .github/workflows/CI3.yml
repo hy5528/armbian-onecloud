@@ -3,13 +3,17 @@ name: CI3
 on:
   workflow_dispatch:
   push:
+    branches:
+      - readme
+    paths:
+      - .github/workflows/CI3.yml
 
 env:
   UBOOT_REPO: hzyitc/u-boot-onecloud
   UBOOT_RELEASE: latest
   UBOOT_BURNIMG: eMMC.burn.img
-  ARMBIAN_REPO: armbian/build
-  ARMBIAN_REF: v22.11
+  ARMBIAN_REPO: TooYoungTooSimp/s805-armbian-build
+  ARMBIAN_REF: master
   USERPATCH_REPO: ${{ github.repository }}
   USERPATCH_REF: ${{ github.ref_name }}
   BRANCH: current
