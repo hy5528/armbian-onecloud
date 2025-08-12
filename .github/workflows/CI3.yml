@@ -5,8 +5,7 @@ on:
   push:
     branches:
       - readme
-    paths:
-      - .github/workflows/CI3.yml
+    
 
 env:
   UBOOT_REPO: hzyitc/u-boot-onecloud
