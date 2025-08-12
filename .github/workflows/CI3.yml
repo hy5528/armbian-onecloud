@@ -84,12 +84,6 @@ jobs:
           ref: ${{ env.USERPATCH_SHA }}
           path: userpatches/
 
-      - name: "Apply patch #3774 and #4077"
-        run: |
-          curl -L -O "https://github.com/armbian/build/pull/{4077}.patch"
-          for file in *.patch; do
-            patch --batch -p1 -N <"$file"
-          done
 
       - name: Build
         run: |
