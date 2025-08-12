@@ -94,7 +94,10 @@ jobs:
           repository: ${{ env.ARMBIAN_REPO }}
           ref: ${{ env.ARMBIAN_SHA }}
      
-          
+      - name: "chmod 77"
+        shell: bash
+        run: |
+          sudo chmod 777 build/cache/.aria2     
       - name: Build
         run: |
           sudo ./compile.sh \
@@ -152,7 +155,10 @@ jobs:
         with:
           name: debs-${{ matrix.BRANCH }}
           path: output/debs/
-     
+      - name: "chmod 77"
+        shell: bash
+        run: |
+          sudo chmod 777 build/cache/.aria2 
       - name: Build
         run: |
           sudo ./compile.sh \
